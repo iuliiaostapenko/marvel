@@ -11,8 +11,9 @@ export const fetchCaharacter = id => {
 function get(url) {
   const ts = Date.now();
   // Replace with real data (dotEnv)
-  const apiPublicKey = "";
-  const apiPrivateKey = "";
+  // This is just for presentation
+  const apiPublicKey = "0ffa378ce7ddfc7d16951a8f03455793";
+  const apiPrivateKey = "a92cc1b1ae3d2dba5d761437cf1dd581fdaedc03";
   const hash = md5(ts + apiPrivateKey + apiPublicKey);
   return fetch(`${url}?ts=${ts}&apikey=${apiPublicKey}&hash=${hash}`).then(
     handleResponse
@@ -31,7 +32,6 @@ function handleResponse(response) {
       data.error.status = response.status;
       return Promise.reject(data.error);
     }
-
     return data.data.results;
   });
 }

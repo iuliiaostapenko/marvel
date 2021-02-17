@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import MediaCard from "../MediaCard";
+import Tiles from "./Tiles";
+import Ball from "./image/ball.gif";
 import * as Api from "../Api";
+import "./Detail.css";
 
 export default function Detail() {
   // Params
@@ -31,12 +32,29 @@ export default function Detail() {
 
     return response;
   }
+  const thumbnailImage = character && character.thumbnail;
+  const characterComics = character && character.comics;
+  const characterSeries = character && character.series;
+  const characterStories = character && character.stories;
 
   return (
     character && (
-      <Grid container spacing={1}>
-        <MediaCard character={character} />
-      </Grid>
+      <div>
+        <div className="hero-banner-white">
+          <div
+            className="crazy-ball"
+            style={{ backgroundImage: `url(${Ball})` }}
+          >
+            <div className="crazy-ball-picture">
+              <img src={`${thumbnailImage.path}.${thumbnailImage.extension}`} />
+            </div>
+          </div>
+          <h1>{character.name}</h1>
+        </div>
+        <Tiles title="Comics" items={characterComics} />
+        <Tiles title="Series" items={characterSeries} />
+        <Tiles title="Stories" items={characterStories} />
+      </div>
     )
   );
 }

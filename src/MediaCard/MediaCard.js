@@ -1,9 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
@@ -11,11 +9,32 @@ import Typography from "@material-ui/core/Typography";
 export default function MediaCard({ character, index }) {
   const useStyles = makeStyles({
     root: {
-      marginTop: 30,
-      marginBottom: 30
+      margin: "30px 0 0",
+      position: "relative",
+      "&:hover": {
+        backgroundColor: "#e62429"
+      }
+    },
+    title: {
+      fontSize: "1rem",
+      color: "black",
+      textTransform: "uppercase"
     },
     media: {
-      height: 140
+      height: "140px",
+      borderBottom: "4px solid #e62429"
+    },
+    rectangleSpace: {
+      height: "40px"
+    },
+    link: {
+      fontSize: "12px"
+    },
+    titleWrap: {
+      height: "5rem",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
     }
   });
 
@@ -29,25 +48,18 @@ export default function MediaCard({ character, index }) {
           image={`${thumbnailImage.path}.${thumbnailImage.extension}`}
           title="Contemplative Character"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+        <CardContent className={classes.titleWrap}>
+          <Typography
+            className={classes.title}
+            gutterBottom
+            variant="h5"
+            component="h2"
+          >
             {character.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
+          <div className={classes.rectangleSpace}></div>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Link to={`/${character.id}`}>About</Link>
-        {character &&
-          character.urls.map((url, index) => (
-            <a href={url.url} size="small" color="primary">
-              {url.type}
-            </a>
-          ))}
-      </CardActions>
     </Card>
   );
 }

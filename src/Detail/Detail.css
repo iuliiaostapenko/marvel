@@ -1,0 +1,108 @@
+.hero-banner-white {
+  position: relative;
+  display: block;
+  text-align: center;
+}
+.hero-banner-white  img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.hero-banner-black{
+  display: block;
+  padding: 70px 0;
+  text-align: left;
+}
+.crazy-ball {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.crazy-ball-picture {
+  width: 500px;
+  height: 500px;
+  border-radius: 500px;
+  overflow: hidden;
+}
+.crazy-ball-picture img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.tilesWrap {
+  padding: 0;
+  margin: 50px auto;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.tilesWrap li {
+  min-width: 200px;
+  width: 20%;
+  padding: 80px 1% 40px;
+  position: relative;
+  vertical-align: top;
+  min-height: 25vh;
+  border: 1px solid #252727;
+  text-align: left;
+}
+.tilesWrap li h2 {
+  font-size: 114px;
+  margin: 0;
+  position: absolute;
+  opacity: 0.2;
+  top: 50px;
+  right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.tilesWrap li h3 {
+  font-size: 20px;
+  color: #333333;
+  margin-bottom: 5px;
+  line-height: 26px;
+}
+.tilesWrap li:hover h2 {
+  top: 0px;
+  opacity: 0.6;
+}
+.tilesWrap li:before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: #fff;
+  transform: skew(2deg, 2deg);
+}
+.tilesWrap li:after {
+  content: '';
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+.tilesWrap li:nth-child(1):before {
+  background: #C9FFBF;
+  background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);
+  background: linear-gradient(to right, #FFAFBD, #C9FFBF);
+}
+.tilesWrap li:nth-child(2):before {
+  background: #f2709c;
+  background: -webkit-linear-gradient(to right, #ff9472, #f2709c);
+  background: linear-gradient(to right, #ff9472, #f2709c);
+}
+.tilesWrap li:nth-child(3):before {
+  background: #c21500;
+  background: -webkit-linear-gradient(to right, #ffc500, #c21500);
+  background: linear-gradient(to right, #ffc500, #c21500);
+}
+.tilesWrap li:nth-child(4):before {
+  background: #FC354C;
+  background: -webkit-linear-gradient(to right, #0ABFBC, #FC354C);
+  background: linear-gradient(to right, #0ABFBC, #FC354C);
+}
